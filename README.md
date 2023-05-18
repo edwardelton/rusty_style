@@ -123,4 +123,3 @@ let my_copy = style.clone();
     <img alt="GitHub" src="https://img.shields.io/github/license/edwardelton/rusty_style?color=pink">
     <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/edwardelton/rusty_style?color=pink">
 </p>
-```
