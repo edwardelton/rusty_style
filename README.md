@@ -61,6 +61,7 @@ fn main() {
 Rusty Style supports True Color:
 
 <h4>RGB</h4>
+
 ```rs
 rusty_style::Color::new(255, 192, 203) // pink
 rusty_style::Color::new(166, 200, 148) // green
@@ -68,6 +69,7 @@ rusty_style::Color::new(142, 29, 206) // purple
 ```
 
 <h4>HEX</h4>
+
 ```rs
 rusty_style::Color::convert_hex_to_rgb("#DE3163").unwrap() // cerse
 rusty_style::Color::convert_hex_to_rgb("#9F2B68").unwrap() // amaranth
