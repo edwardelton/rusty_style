@@ -26,6 +26,8 @@ Rusty style is built on the builder design pattern. Designing your TUI is easier
 
 <h3>Example</h3>
 
+For a simple demo, take a look into the examples directory.
+
 ```rs
 use rusty_style::{Color, Style};
 
