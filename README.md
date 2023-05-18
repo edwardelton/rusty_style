@@ -6,12 +6,20 @@
 
 ----
 
+<p align="center">
+    <img src="https://e1.pxfuel.com/desktop-wallpaper/299/908/desktop-wallpaper-lip-gloss-aesthetic-skincare-aesthetic.jpg" alt="gloss" width="500px"/>
+</p>
+
+<br/>
+
 > # Introduction
 
 * ***Rusty Style is a Terminal Utility to style your TUI project.***
 * ***It is mainly inspired by lipgloss, a golang TUI library.***
 
 * ***It is built using the build design pattern.***
+
+<br/>
 
 > # Example
 
