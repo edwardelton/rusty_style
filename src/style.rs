@@ -1,5 +1,6 @@
 use crate::color::Color;
 
+#[derive(Clone)]
 pub struct Style {
     pub code: String,
     pub text: String,
@@ -20,6 +21,12 @@ impl Style {
         self
     }
 
+    /// Set the text faint.
+    pub fn faint(mut self) -> Style {
+        self.code.push_str("\x1b[2m");
+        self
+    }
+
     /// Set the text italic.
     pub fn italic(mut self) -> Style {
         self.code.push_str("\x1b[3m");
@@ -29,6 +36,30 @@ impl Style {
     /// Set the text underline.
     pub fn underline(mut self) -> Style {
         self.code.push_str("\x1b[4m");
+        self
+    }
+
+    /// Set the text blink.
+    pub fn blink(mut self) -> Style {
+        self.code.push_str("\x1b[5m");
+        self
+    }
+
+    /// Set the text reverse.
+    pub fn reverse(mut self) -> Style {
+        self.code.push_str("\x1b[7m");
+        self
+    }
+
+    /// Set the text invisible.
+    pub fn invisible(mut self) -> Style {
+        self.code.push_str("\x1b[8m");
+        self
+    }
+
+    /// Set the text strike through.
+    pub fn strike_through(mut self) -> Style {
+        self.code.push_str("\x1b[9m");
         self
     }
 
@@ -53,14 +84,15 @@ impl Style {
     }
 
     /// Render the text setted with the style.
-    /// Use when you are done with your style.
+    /// Use when you are done with your style, you won't get back your Style object.
+    /// If you want to keep your Style object, I recommend cloning it before calling render.
     ///
     /// # Example
     ///
     /// ```
-    /// use rusty_style::color::Color;
+    /// use rusty_style::Color;
     ///
-    /// let my_style = rusty_style::style::Style::new()
+    /// let mut my_style = rusty_style::Style::new()
     ///   .bold()
     ///   .italic()
     ///   .underline()
@@ -74,8 +106,8 @@ impl Style {
     pub fn render(mut self, text: &str) -> String {
         self.text.push_str(text);
 
-        let rendered_string = format!("{}{}\x1b[0m", self.code, self.text);
-        rendered_string
+        let rendered_text = format!("{}{}\x1b[0m", self.code, self.text);
+        rendered_text
     }
 }
 
@@ -101,6 +133,13 @@ mod tests {
     }
 
     #[test]
+    fn faint() {
+        let style = Style::new().faint();
+
+        assert_eq!(style.code, "\x1b[2m");
+    }
+
+    #[test]
     fn italic() {
         let style = Style::new().italic();
 
@@ -112,6 +151,34 @@ mod tests {
         let style = Style::new().underline();
 
         assert_eq!(style.code, "\x1b[4m");
+    }
+
+    #[test]
+    fn blink() {
+        let style = Style::new().blink();
+
+        assert_eq!(style.code, "\x1b[5m");
+    }
+
+    #[test]
+    fn reverse() {
+        let style = Style::new().reverse();
+
+        assert_eq!(style.code, "\x1b[7m");
+    }
+
+    #[test]
+    fn invisible() {
+        let style = Style::new().invisible();
+
+        assert_eq!(style.code, "\x1b[8m");
+    }
+
+    #[test]
+    fn strike_through() {
+        let style = Style::new().strike_through();
+
+        assert_eq!(style.code, "\x1b[9m");
     }
 
     #[test]
