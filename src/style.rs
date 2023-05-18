@@ -58,7 +58,7 @@ impl Style {
     /// # Example
     ///
     /// ```
-    /// use rusty_style::color::color::Color;
+    /// use rusty_style::color::Color;
     ///
     /// let my_style = rusty_style::style::Style::new()
     ///    .bold()
