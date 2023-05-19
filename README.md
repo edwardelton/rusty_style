@@ -83,7 +83,7 @@ rusty_style::Color::convert_hex_to_rgb("#F2D2BD").unwrap() // bisque
 Rusty Style supports the usual ANSI text formatting options:
 
 ```rs
-let style = rusty_style::Style::new()
+let style = rusty_style::Style::new().
     bold().
     faint().
     italic().
